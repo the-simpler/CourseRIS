@@ -29,7 +29,9 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <value>salesproperty.model.Flat</value>
+                <value>salesproperty.model.FlatEntity</value>
+                <value>salesproperty.model.CategoryEntity</value>
+                <value>salesproperty.model.UserEntity</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -44,6 +46,14 @@
     <!--BookDao and BookService beans-->
     <bean id="FlatDAO" class="salesproperty.dao.FlatDAO">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="CategoryDAO" class="salesproperty.dao.CategoryDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="CategoryService" class="salesproperty.service.CategoryService">
+        <property name="categoryDAO" ref="CategoryDAO"/>
     </bean>
 
     <bean id="FlatService" class="salesproperty.service.FlatService">

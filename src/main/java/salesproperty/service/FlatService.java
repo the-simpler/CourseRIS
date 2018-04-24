@@ -3,7 +3,7 @@ package salesproperty.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import salesproperty.dao.FlatDAO;
-import salesproperty.model.Flat;
+import salesproperty.model.FlatEntity;
 
 import java.util.List;
 
@@ -16,13 +16,13 @@ public class FlatService {
     }
 
     @Transactional
-    public void addFlat(Flat flat) {
-        this.flatDAO.addFlat(flat);
+    public void addFlat(FlatEntity flatEntity) {
+        this.flatDAO.addFlat(flatEntity);
     }
 
     @Transactional
-    public void updateFlat(Flat flat) {
-        this.flatDAO.updateFlat(flat);
+    public void updateFlat(FlatEntity flatEntity) {
+        this.flatDAO.updateFlat(flatEntity);
     }
 
     @Transactional
@@ -31,12 +31,12 @@ public class FlatService {
     }
 
     @Transactional
-    public Flat getFlatById(int id) {
+    public FlatEntity getFlatById(int id) {
         return this.flatDAO.getFlatById(id);
     }
 
     @Transactional
-    public List<Flat> listFlats() {
+    public List<FlatEntity> listFlats() {
         return this.flatDAO.listFlats();
     }
 

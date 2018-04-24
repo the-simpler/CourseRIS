@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import salesproperty.model.Flat;
+import salesproperty.model.FlatEntity;
 
 import java.util.List;
 
@@ -19,41 +19,41 @@ public class FlatDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public void addFlat(Flat flat) {
+    public void addFlat(FlatEntity flatEntity) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.persist(flat);
-        logger.info("Flat successfully added. Flat details: "+flat);
+        session.persist(flatEntity);
+        logger.info("FlatEntity successfully added. FlatEntity details: "+ flatEntity);
     }
 
-    public void updateFlat(Flat flat) {
+    public void updateFlat(FlatEntity flatEntity) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.update(flat);
-        logger.info("Flat successfully updated. Flat details: "+flat);
+        session.update(flatEntity);
+        logger.info("FlatEntity successfully updated. FlatEntity details: "+ flatEntity);
     }
 
     public void removeFlat(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Flat flat =(Flat) session.load(Flat.class,new Integer(id));
-        if (flat!=null){
-            session.delete(flat);
+        FlatEntity flatEntity =(FlatEntity) session.load(FlatEntity.class,new Integer(id));
+        if (flatEntity !=null){
+            session.delete(flatEntity);
         }
-        logger.info("Flat successfully removed. Flat details: "+flat);
+        logger.info("FlatEntity successfully removed. FlatEntity details: "+ flatEntity);
     }
 
-    public Flat getFlatById(int id) {
+    public FlatEntity getFlatById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Flat flat =(Flat) session.load(Flat.class,new Integer(id));
-        logger.info("Book successfully loaded. Book details: "+flat);
-        return flat;
+        FlatEntity flatEntity =(FlatEntity) session.load(FlatEntity.class,new Integer(id));
+        logger.info("FlatEntity successfully loaded. FlatEntity details: "+ flatEntity);
+        return flatEntity;
     }
 
     @SuppressWarnings("unchecked")
-    public List<Flat> listFlats() {
+    public List<FlatEntity> listFlats() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Flat> flats = session.createQuery("from Flat").list();
-        for (Flat flat: flats){
-            logger.info("Flats list: "+flat);
+        List<FlatEntity> flatEntities = session.createQuery("from FlatEntity").list();
+        for (FlatEntity flatEntity : flatEntities){
+            logger.info("Flats list: "+ flatEntity);
         }
-        return flats;
+        return flatEntities;
     }
 }

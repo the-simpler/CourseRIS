@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import salesproperty.model.Flat;
+import salesproperty.dao.CategoryDAO;
+import salesproperty.model.FlatEntity;
+import salesproperty.service.CategoryService;
 import salesproperty.service.FlatService;
 
 @Controller
 public class FlatController {
     private FlatService flatService;
+
+    private CategoryService categoryService;
 
     @Autowired(required = true)
     @Qualifier(value = "FlatService")
@@ -22,20 +26,32 @@ public class FlatController {
         this.flatService = flatService;
     }
 
+    @Autowired(required = true)
+    @Qualifier(value = "CategoryService")
+    public void setFlatService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
+
+
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
+    public String showContact(Model model){
+        return "contacts";
+    }
+
     @RequestMapping(value = "/flats", method = RequestMethod.GET)
     public String listFlats(Model model){
-        model.addAttribute("flat", new Flat());
+        model.addAttribute("flat", new FlatEntity());
         model.addAttribute("listFlats", this.flatService.listFlats());
-
+        model.addAttribute("listCategories", this.categoryService.listCategories());
         return "flats";
     }
 
     @RequestMapping(value = "/flats/add", method = RequestMethod.POST)
-    public String addFlat(@ModelAttribute("flat") Flat flat){
-        if(flat.getFlat_id() == 0){
-            this.flatService.addFlat(flat);
+    public String addFlat(@ModelAttribute("flat") FlatEntity flatEntity){
+        if(flatEntity.getFlatId() == 0){
+            this.flatService.addFlat(flatEntity);
         }else {
-            this.flatService.updateFlat(flat);
+            this.flatService.updateFlat(flatEntity);
         }
 
         return "redirect:/flats";
