@@ -59,14 +59,15 @@
 <br/>
 <br/>
 
-<h1>Book List</h1>
+<h1>Flat List</h1>
 
 <c:if test="${!empty listFlats}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
-            <th width="120">Title</th>
-            <th width="120">Author</th>
+            <th width="120">Name</th>
+            <th width="120">Address</th>
+            <th width="180">Info</th>
             <th width="120">Price</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
@@ -76,7 +77,8 @@
                 <td>${flat.flat_id}</td>
                 <td><a href="/flatdata/${flat.flat_id}" target="_blank">${flat.flatName}</a></td>
                 <td>${flat.flatAddress}</td>
-                <td>${flat.price/100}${flat.price%100}</td>
+                <td>${flat.flatInfo}</td>
+                <td>${flat.price}</td>
                 <td><a href="<c:url value='/edit/${flat.flat_id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/remove/${flat.flat_id}'/>">Delete</a></td>
             </tr>
@@ -85,7 +87,7 @@
 </c:if>
 
 
-<h1>Add a Book</h1>
+<h1>Add a Flat</h1>
 
 <c:url var="addAction" value="/flats/add"/>
 
@@ -94,7 +96,7 @@
         <c:if test="${!empty flat.flatName}">
             <tr>
                 <td>
-                    <form:label path="id">
+                    <form:label path="flat_id">
                         <spring:message text="ID"/>
                     </form:label>
                 </td>
@@ -106,12 +108,22 @@
         </c:if>
         <tr>
             <td>
+                <form:label path="flatName">
+                    <spring:message text="Name"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="flatName"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <form:label path="flatInfo">
                     <spring:message text="Info"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="flatName"/>
+                <form:input path="flatInfo"/>
             </td>
         </tr>
         <tr>

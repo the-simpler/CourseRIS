@@ -14,6 +14,7 @@ public class FlatDAO {
     private SessionFactory sessionFactory;
 
     private static final Logger logger = LoggerFactory.getLogger(FlatDAO.class);
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
