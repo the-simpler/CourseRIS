@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import salesproperty.dao.CategoryDAO;
 import salesproperty.model.Attributes;
 import salesproperty.model.FlatEntity;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+@EnableWebMvc
 @Controller
 public class FlatController {
     private FlatService flatService;
@@ -52,6 +54,7 @@ public class FlatController {
 
     @RequestMapping(value = "/contacts", method = RequestMethod.GET)
     public String showContact(Model model){
+        model.addAttribute("message", new MessageEntity());
         return "contacts";
     }
 
@@ -60,6 +63,7 @@ public class FlatController {
         model.addAttribute("flat", new FlatEntity());
         model.addAttribute("listFlats", this.flatService.listFlats());
         model.addAttribute("listCategories", this.categoryService.listCategories());
+        model.addAttribute("message", new MessageEntity());
         return "flats";
     }
 
@@ -91,7 +95,7 @@ public class FlatController {
         }
 
 
-
+        model.addAttribute("message", new MessageEntity());
         model.addAttribute("listCategories", this.categoryService.listCategories());
         model.addAttribute("listFlats",newlist);
         return "flats";
@@ -130,14 +134,39 @@ public class FlatController {
     public String editFlat(@PathVariable("id") int id, Model model){
         model.addAttribute("flat", this.flatService.getFlatById(id));
         model.addAttribute("listFlats", this.flatService.listFlats());
-
+        model.addAttribute("message", new MessageEntity());
         return "flats";
     }
 
     @RequestMapping("flatdata/{id}")
     public String flatData(@PathVariable("id") int id, Model model){
         model.addAttribute("flat", this.flatService.getFlatById(id));
-
+        model.addAttribute("message", new MessageEntity());
         return "flatdata";
     }
+
+    @RequestMapping(value = "/about")
+    public String showAbout(Model model){
+        model.addAttribute("message", new MessageEntity());
+        return "about-us";
+    }
+
+    @RequestMapping(value = "/gallery")
+    public String showGallery(Model model){
+        model.addAttribute("message", new MessageEntity());
+        return "gallery";
+    }
+
+    @RequestMapping(value = "/404")
+    public String showError(Model model){
+        model.addAttribute("message", new MessageEntity());
+        return "404";
+    }
+
+    @RequestMapping(value = "/faq")
+    public String showFAQ(Model model){
+        model.addAttribute("message", new MessageEntity());
+        return "faq";
+    }
+
 }

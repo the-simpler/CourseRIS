@@ -8,6 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DeluxHotel - Responsive Bootstrap 4 Template For Hotels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
     <style>
         <%@include file="/resources/assets/css/bootstrap.min.css"%>
     </style>
@@ -15,9 +19,7 @@
     <style>
         <%@include file="/resources/assets/css/navs.css"%>
     </style>
-    <style>
-        <%@include file="/resources/assets/css/font-awesome.min.css"%>
-    </style>
+
     <style>
         <%@include file="/resources/assets/css/owl.carousel.min.css"%>
     </style>
@@ -32,7 +34,7 @@
     </style>
 
     <style>
-    <%@include file="/resources/assets/css/responsive.css"%>
+        <%@include file="/resources/assets/css/responsive.css"%>
     </style>
     <script type = text/javascript>
         <%@include file="/resources/assets/js/jquery.min.js"%>
@@ -69,8 +71,8 @@
         <%@include file="/resources/assets/js/main.js"%>
     </script>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- main wrapper -->
@@ -96,7 +98,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
-                            <div class="logo"><a href="index" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
+                            <div class="logo"><a href="<c:url value="/index"/>" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
                         </div>
                         <div class="col-lg-9">
                             <div class="navbar-header">
@@ -104,18 +106,18 @@
                             </div>
                             <div class="collapse navbar-collapse navbar-main-collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="index">Home</a></li>
+                                    <li><a href="<c:url value="/index"/>">Home</a></li>
                                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="<c:url value="/about"/>">About Us</a></li>
                                             <li><a href="<c:url value="/contacts"/>">Contacts</a></li>
-                                            <li><a href="faq.html">F.A.Q</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                            <li><a href="404.html">404 Page Not Found</a></li>
+                                            <li><a href="<c:url value="/faq"/>">F.A.Q</a></li>
+                                            <li><a href="<c:url value="/gallery"/>">Gallery</a></li>
+                                            <li><a href="<c:url value="/404"/>">404 Page Not Found</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="wizzard-step1.html">Reservation</a></li>
-                                    <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rooms <span class="caret"></span></a>
+
+                                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rooms <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="<c:url value="/flats"/>">All Rooms</a></li>
                                         </ul>
@@ -277,7 +279,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="footer-top_logo"><a href="index"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
+                            <div class="footer-top_logo"><a href="<c:url value="/index"/>"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
                             <div class="footer-top_txt">
                                 <p>Continual delighted as elsewhere am convinced unfeeling. Introduced stimulated attachment no by projection. To lady whom my mile sold four need introduced.</p>
                             </div>
@@ -338,8 +340,8 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-bottom_links">
                                 <a class="active" href="index">Home</a>
-                                <a href="gallery.html">Gallery</a>
-                                <a href="blog.html">Blog</a>
+                                <a href="<c:url value="/gallery"/>">Gallery</a>
+
                                 <a href="wizzard-step1.html">Reservation</a>
                                 <a href="#">Purchase</a>
                             </div>
