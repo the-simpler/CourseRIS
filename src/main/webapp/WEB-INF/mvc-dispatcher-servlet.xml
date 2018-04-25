@@ -32,6 +32,7 @@
                 <value>salesproperty.model.FlatEntity</value>
                 <value>salesproperty.model.CategoryEntity</value>
                 <value>salesproperty.model.UserEntity</value>
+                <value>salesproperty.model.MessageEntity</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -39,6 +40,8 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
                 </prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
     </bean>
@@ -54,6 +57,14 @@
 
     <bean id="CategoryService" class="salesproperty.service.CategoryService">
         <property name="categoryDAO" ref="CategoryDAO"/>
+    </bean>
+
+    <bean id="MessageDAO" class="salesproperty.dao.MessageDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="MessageService" class="salesproperty.service.MessageService">
+        <property name="messageDAO" ref="MessageDAO"/>
     </bean>
 
     <bean id="FlatService" class="salesproperty.service.FlatService">

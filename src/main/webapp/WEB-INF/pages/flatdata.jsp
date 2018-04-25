@@ -94,7 +94,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
-                            <div class="logo"><a href="../../index.jsp" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
+                            <div class="logo"><a href="index.jsp" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
                         </div>
                         <div class="col-lg-9">
                             <div class="navbar-header">
@@ -102,7 +102,7 @@
                             </div>
                             <div class="collapse navbar-collapse navbar-main-collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="../../index.jsp">Home</a></li>
+                                    <li><a href="index.jsp">Home</a></li>
                                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="about-us.html">About Us</a></li>
@@ -260,7 +260,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer-top_logo"><a href="../../index.jsp"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
+                        <div class="footer-top_logo"><a href="index.jsp"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
                         <div class="footer-top_txt">
                             <p>Continual delighted as elsewhere am convinced unfeeling. Introduced stimulated attachment no by projection. To lady whom my mile sold four need introduced.</p>
                         </div>

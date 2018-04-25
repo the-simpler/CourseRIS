@@ -94,7 +94,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
-                            <div class="logo"><a href="../../index.jsp" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
+                            <div class="logo"><a href="index.jsp" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
                         </div>
                         <div class="col-lg-9">
                             <div class="navbar-header">
@@ -102,7 +102,7 @@
                             </div>
                             <div class="collapse navbar-collapse navbar-main-collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="../../index.jsp">Home</a></li>
+                                    <li><a href="index.jsp">Home</a></li>
                                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="about-us.html">About Us</a></li>
@@ -118,12 +118,7 @@
                                             <li><a href="<c:url value="/flats"/>">All Rooms</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog.html">All Posts</a></li>
-                                            <li><a href="blog-detail.html">Post Detail</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li><a href="#">Purchase</a></li>
                                 </ul>
                             </div>
@@ -138,15 +133,10 @@
     <section class="breadcrumbs" style="background-image: url(/resources/assets/images/breadcrumbs/best-room.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h1 class="h1">Select Room</h1>
+                <div class="col-md-12">
+                    <h1 class="h1">Select Flat</h1>
                 </div>
-                <div class="col-md-6">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
-                        <li class="active">Rooms</li>
-                    </ol>
-                </div>
+
             </div>
         </div>
     </section>
@@ -154,13 +144,10 @@
     <!-- chose best rooms -->
     <section class="gallery best-room">
         <div class="container">
-            <h2 class="h2">Best Rooms For Your Comfort</h2>
+            <h2 class="h2">Best Flats For Your Comfort</h2>
             <ul class="portfolio-sorting">
                 <li><a href="#" data-group="all" class="active">All</a></li>
                 <c:forEach items="${listCategories}" var="categoryEntity">
-                    <!-- <li><a href="#" data-group="double">Double</a></li>
-                <li><a href="#" data-group="lux">Luxury</a></li>
-                <li><a href="#" data-group="standard">Standard</a></li>-->
                 <li><a href="#" data-group="${categoryEntity.name}">${categoryEntity.name}</a></li>
                 </c:forEach>
             </ul>
@@ -204,7 +191,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer-top_logo"><a href="../../index.jsp"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
+                        <div class="footer-top_logo"><a href="index.jsp"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
                         <div class="footer-top_txt">
                             <p>Continual delighted as elsewhere am convinced unfeeling. Introduced stimulated attachment no by projection. To lady whom my mile sold four need introduced.</p>
                         </div>
@@ -277,7 +264,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="footer-bottom_links">
-                            <a class="active" href="index.html">Home</a>
+                            <a class="active" href="index.jsp">Home</a>
                             <a href="gallery.html">Gallery</a>
                             <a href="blog.html">Blog</a>
                             <a href="wizzard-step1.html">Reservation</a>
