@@ -6,18 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad165002-e810-48a1-be8d-caa36d0412fd" name="Default" comment="fix font-awesome, fix all jsp pages">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/controller/UserController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/dao/UserDAO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/service/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_3_0_alpha_1.xml" />
+    <list default="true" id="ad165002-e810-48a1-be8d-caa36d0412fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/courseris.iml" afterPath="$PROJECT_DIR$/courseris.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/controller/FlatController.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/controller/FlatController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/gallery.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/gallery.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -745,7 +735,7 @@
       <workItem from="1524288356470" duration="2029000" />
       <workItem from="1524571398771" duration="22681000" />
       <workItem from="1524640407881" duration="15836000" />
-      <workItem from="1524675635097" duration="19992000" />
+      <workItem from="1524675635097" duration="20028000" />
     </task>
     <task id="LOCAL-00001" summary="work with flat table added">
       <created>1523630401608</created>
@@ -782,11 +772,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524692685489</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add error page and user table">
+      <created>1524736140380</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524736140380</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85380000" />
+    <option name="totallyTimeSpent" value="85416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -875,7 +872,8 @@
     <MESSAGE value="fix pages, add messages, Attributes" />
     <MESSAGE value="fix font-awesome" />
     <MESSAGE value="fix font-awesome, fix all jsp pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix font-awesome, fix all jsp pages" />
+    <MESSAGE value="add error page and user table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add error page and user table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
