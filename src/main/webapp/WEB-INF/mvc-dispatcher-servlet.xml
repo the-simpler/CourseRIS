@@ -53,6 +53,10 @@
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
+    <bean id="FlatService" class="salesproperty.service.FlatService">
+        <property name="flatDAO" ref="FlatDAO"/>
+    </bean>
+
     <bean id="CategoryDAO" class="salesproperty.dao.CategoryDAO">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
@@ -69,9 +73,15 @@
         <property name="messageDAO" ref="MessageDAO"/>
     </bean>
 
-    <bean id="FlatService" class="salesproperty.service.FlatService">
-        <property name="flatDAO" ref="FlatDAO"/>
+    <bean id="UserDAO" class="salesproperty.dao.UserDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
+
+    <bean id="UserService" class="salesproperty.service.UserService">
+        <property name="userDAO" ref="UserDAO"/>
+    </bean>
+
+
 
     <context:component-scan base-package="salesproperty"/>
 

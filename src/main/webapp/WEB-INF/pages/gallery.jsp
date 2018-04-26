@@ -166,79 +166,19 @@
         </div>
       </div>
       <div class="container">
+
         <div id="grid" class="row portfolio-items">
+          <c:forEach items="${listFlats}" var="flatEntity">
           <div data-groups="[&quot;entertainment&quot;, &quot;sport&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/1.jpg" alt="">
+              <a href="#"><img src="../../resources/assets/images/gallery/${flatEntity.image}.jpg" alt="">
                 <div class="portfolio-overlay">
-                  <div class="caption">Delux Double Room<span>Some descriptions for it...</span></div>
+                  <div class="caption">${flatEntity.name}<span>${flatEntity.info}</span></div>
                 </div>
               </a>
             </div>
           </div>
-          <div data-groups="[&quot;service&quot;, &quot;sport&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/2.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Grand Super Luxury<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;entertainment&quot;, &quot;restaurants&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/3.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Special Spa Room<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;sport&quot;, &quot;entertainment&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/4.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">President Double Luxury<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;restaurants&quot;, &quot;entertainment&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/5.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Creative One Bad Room<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;restaurants&quot;, &quot;sport&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/6.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Double Luxury Room<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;entertainment&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/7.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Spa Villa House<span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-groups="[&quot;service&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="portfolio-item">
-              <a href="#"><img src="../../resources/assets/images/gallery/8.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="caption">Form Image Creative <span>Some descriptions for it...</span></div>
-                </div>
-              </a>
-            </div>
-          </div>
+          </c:forEach>
         </div>
       </div>
     </section>
