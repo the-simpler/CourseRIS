@@ -122,7 +122,10 @@
                       </ul>
                     </li>
 
-                    <li><a href="#">Purchase</a></li>
+                      <c:if test="${role == '1'}">
+                          <li><a href="<c:url value="/managerpanel"/>">Manager</a></li>
+                          <li><a href="<c:url value="/showallusers"/>">Users</a></li>
+                      </c:if>
                   </ul>
                 </div>
               </div>

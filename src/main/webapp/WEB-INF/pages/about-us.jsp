@@ -121,8 +121,11 @@
                         <li><a href="<c:url value="/flats"/>">All Rooms</a></li>
                       </ul>
                     </li>
+                    <c:if test="${role == '1'}">
+                      <li><a href="<c:url value="/managerpanel"/>">Manager</a></li>
+                      <li><a href="<c:url value="/showallusers"/>">Users</a></li>
+                    </c:if>
 
-                    <li><a href="#">Purchase</a></li>
                   </ul>
                 </div>
               </div>

@@ -56,6 +56,10 @@ Table of contents
 /**
 * Starting styles
 **/
+
+.has-error {
+  color: red
+}
 body {
   background-color: #fff;
 }
@@ -797,6 +801,11 @@ hr {
 .planner .planner-block .planner-check-availability {
   margin-top: 16px;
   text-align: right;
+}
+
+.planner .planner-block .planner-check-left {
+  margin-top: 16px;
+  text-align: left;
 }
 section, .section {
     position: relative;

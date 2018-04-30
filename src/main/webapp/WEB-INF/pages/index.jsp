@@ -123,7 +123,10 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="#">Purchase</a></li>
+                                    <c:if test="${role == '1'}">
+                                        <li><a href="<c:url value="/managerpanel"/>">Manager</a></li>
+                                        <li><a href="<c:url value="/showallusers"/>">Users</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -140,8 +143,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="parallax-text">
-                        <h2 class="parallax_t __white">New Grand Hotel 5*</h2>
-                        <h2 class="parallax_t __green">available from 10.12.2016</h2>
+                        <h2 class="parallax_t __white">Flat Agency</h2>
+                        <h2 class="parallax_t __green">available from 01.05.2018</h2>
                         <p>Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence. Him remarkably use projection collecting going about eat forty world.</p>
                     </div>
                 </div>
@@ -215,12 +218,8 @@
                                             </div>
                                         </div>
                             </div>
-
-
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-
-
                                     <div class="planner-check-availability">
                                         <input class = "btn btn-default" type="submit" value="Find Flats"/>
                                     </div>

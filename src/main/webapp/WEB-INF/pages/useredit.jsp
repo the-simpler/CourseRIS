@@ -139,56 +139,67 @@
     <section class="breadcrumbs" style="background-image: url(/resources/assets/images/breadcrumbs/best-room.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1 class="h1">Select Flat</h1>
+                <div class="col-md-6">
+                    <h1 class="h1">Update User</h1>
                 </div>
+                <div class="col-md-6">
 
+                </div>
             </div>
         </div>
     </section>
     <!-- /breadcrumbs -->
     <!-- chose best rooms -->
-    <section class="gallery best-room">
-        <div class="container">
-            <h2 class="h2">Best Flats For Your Comfort</h2>
-            <ul class="portfolio-sorting">
-                <li><a href="#" data-group="all" class="active">All</a></li>
-                <c:forEach items="${listCategories}" var="categoryEntity">
-                <li><a href="#" data-group="${categoryEntity.name}">${categoryEntity.name}</a></li>
-                </c:forEach>
-            </ul>
-            <div class="container best-room-carousel">
-                <div id="grid" class="row best-room_ul best-rooms-isotope-page">
-                    <c:forEach items="${listFlats}" var="flatEntity">
-                    <div data-groups="[&quot;${flatEntity.categoryByCategoryId.name}&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
-                        <div class="best-room_img">
-                            <a href="#"><img src="resources/assets/images/gallery/${flatEntity.image}.png" alt=""/></a>
-                            <div class="best-room_overlay">
-                                <div class="overlay_icn"><a href="/flatdata/${flatEntity.flatId}"></a></div>
-                            </div>
-                        </div>
-                        <div class="best-room-info">
-                            <div class="best-room_t"><a href="/flatdata/${flatEntity.flatId}">${flatEntity.name}</a></div>
-                            <div class="best-room_desc">${flatEntity.info}</div>
-                            <div class="best-room_price">
-                                <span>$${flatEntity.price}</span> / night
-                            </div>
-                            <div class="best-room_footer">
-                                <div class="footer_el __bed"><i class="fa fa-bed"></i> ${flatEntity.bed}</div>
-                                <div class="footer_el __ppl"><i class="fa fa-user"></i> ${flatEntity.user}</div>
-                                <div class="footer_el __wifi">Free WiFi</div>
-                                <div class="footer_el __area">${flatEntity.square} sqm</div>
-                                <div class="clearfix"></div>
+    <section class="room-detail">
+        <form:form method = "POST" commandName="user" action="/user/add" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="row reservation-top">
+                            <div class="module __reservation">
+                                <div class="module-block">
+                                    <form class="form-planner form-horizontal">
+
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </c:forEach>
-                </div>
+
+
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="room-detail_overview">
+                            <table class="simple">
+                                <c:if test = "${user.userId!= 0}">
+                                    <tr>
+                                        <td><strong>User ID:</strong></td>
+                                        <td><form:input path="userId" type="text" class="form-control" placeholder="Flat ID ..."/>
+                                        </td>
+                                    </tr>
+                                </c:if>
+                                <tr>
+                                    <td><strong>Username:</strong></td>
+                                    <td><form:input path="username" type="text" class="form-control" placeholder="Username ..."/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Password:</strong></td>
+                                    <td>   <form:input path="password" type="text" class="form-control" placeholder="Password ..."/> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Role:</strong></td>
+                                    <td>   <form:input path="role" type="text" class="form-control" placeholder="Role ..."/> </td>
+                                </tr>
+
+                            </table>
+                            <input type="submit" value="UPDATE" class="form-control" style = "background-color: #9CCC65; color: white" />
+                        </div>
                     </div>
-            </ul>
                 </div>
-
-
+            </div>
+        </form:form>
     </section>
     <!-- /choose best rooms -->
     <!-- footer -->
@@ -226,7 +237,7 @@
                                     <form:textarea path = "message" rows="6" name="message" class="form-control" placeholder="Message ..."/>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-                                    <input type="submit" value="Send message" class="btn btn-default"/>
+                                    <input  type="submit" value="Send message" class="btn btn-default"/>
                                 </div>
                             </form:form>
                         </div>

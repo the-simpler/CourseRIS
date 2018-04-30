@@ -40,4 +40,12 @@ public class UserService {
         return this.userDAO.listUsers();
     }
 
+    @Transactional
+    public UserEntity getUserByNicknameAndPassword(String username, String password){
+        return this.userDAO.getUserByNicknameAndPassword(username,password);
+    }
+    @Transactional
+    public UserEntity getUserByNickname(String username){
+        return this.userDAO.getUserByNickname(username);
+    }
 }

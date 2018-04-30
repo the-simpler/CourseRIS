@@ -154,7 +154,10 @@
       <div class="container">
         <div class="not-found_t">4<span>0</span>4</div>
         <div class="not-found_slogan">Oops, Error!</div>
-        <div class="not_found_txt">The page you were looking for could not be found.</div>
+        <div class="not_found_txt"> <c:if test="${!empty error}">
+          ${error}
+        </c:if>
+        </div>
       </div>
     </section>
     <!-- /404 -->
@@ -212,7 +215,6 @@
                 <a class="active" href="index">Home</a>
                 <a href="<c:url value="/gallery"/>">Gallery</a>
 
-                <a href="wizzard-step1.html">Reservation</a>
                 <a href="#">Purchase</a>
               </div>
             </div>

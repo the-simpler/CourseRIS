@@ -8,6 +8,17 @@ public class UserEntity {
     private int userId;
     private String username;
     private String password;
+    private int role;
+    transient private String confirmPassword;
+
+    @Transient
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -37,6 +48,16 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "role", nullable = false)
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     @Override

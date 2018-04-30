@@ -124,8 +124,9 @@
 
                                     <c:if test="${role == '1'}">
                                         <li><a href="<c:url value="/managerpanel"/>">Manager</a></li>
-                                        <li><a href="<c:url value="/showallusers"/>">Users</a></li>
+                                        <li><a href="<c:url value="/showallusers"/>">Manager</a></li>
                                     </c:if>
+
                                 </ul>
                             </div>
                         </div>
@@ -139,6 +140,8 @@
     <section class="breadcrumbs" style="background-image: url(/resources/assets/images/breadcrumbs/best-room.jpg)">
         <div class="container">
             <div class="row">
+
+
                 <div class="col-md-12">
                     <h1 class="h1">Select Flat</h1>
                 </div>
@@ -150,43 +153,38 @@
     <!-- chose best rooms -->
     <section class="gallery best-room">
         <div class="container">
-            <h2 class="h2">Best Flats For Your Comfort</h2>
-            <ul class="portfolio-sorting">
-                <li><a href="#" data-group="all" class="active">All</a></li>
-                <c:forEach items="${listCategories}" var="categoryEntity">
-                <li><a href="#" data-group="${categoryEntity.name}">${categoryEntity.name}</a></li>
-                </c:forEach>
-            </ul>
+            <div class="col-md-12 text-center">
+                <p></p>
+            </div>
+            <h2 class="h2">All USERS</h2>
             <div class="container best-room-carousel">
                 <div id="grid" class="row best-room_ul best-rooms-isotope-page">
-                    <c:forEach items="${listFlats}" var="flatEntity">
-                    <div data-groups="[&quot;${flatEntity.categoryByCategoryId.name}&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
-                        <div class="best-room_img">
-                            <a href="#"><img src="resources/assets/images/gallery/${flatEntity.image}.png" alt=""/></a>
-                            <div class="best-room_overlay">
-                                <div class="overlay_icn"><a href="/flatdata/${flatEntity.flatId}"></a></div>
+                    <c:forEach items="${listUsers}" var="userEntity">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
+                            <div class="best-room_img">
+                                <a href="#"><img src="../../resources/assets/images/gallery/7.png" alt=""/></a>
+                                <div class="best-room_overlay">
+                                    <div class="overlay_icn"><a href="/useredit/${userEntity.userId}"></a></div>
+                                </div>
+                            </div>
+                            <div class="best-room-info">
+                                <div class="best-room_t"><a href="useredit/${userEntity.userId}">${userEntity.username}</a></div>
+                                <div class="best-room_desc">${userEntity.password}</div>
+
+                                <c:if test="${userEntity.role == 1}">
+                                    <div class="best-room_desc">Manager</div>
+                                </c:if>
+                                <c:if test="${userEntity.role == 0}">
+                                    <div class="best-room_desc">User</div>
+                                </c:if>
+
                             </div>
                         </div>
-                        <div class="best-room-info">
-                            <div class="best-room_t"><a href="/flatdata/${flatEntity.flatId}">${flatEntity.name}</a></div>
-                            <div class="best-room_desc">${flatEntity.info}</div>
-                            <div class="best-room_price">
-                                <span>$${flatEntity.price}</span> / night
-                            </div>
-                            <div class="best-room_footer">
-                                <div class="footer_el __bed"><i class="fa fa-bed"></i> ${flatEntity.bed}</div>
-                                <div class="footer_el __ppl"><i class="fa fa-user"></i> ${flatEntity.user}</div>
-                                <div class="footer_el __wifi">Free WiFi</div>
-                                <div class="footer_el __area">${flatEntity.square} sqm</div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
                     </c:forEach>
                 </div>
-                    </div>
+            </div>
             </ul>
-                </div>
+        </div>
 
 
     </section>

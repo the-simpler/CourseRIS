@@ -17,6 +17,7 @@ import salesproperty.service.FlatService;
 import salesproperty.service.MessageService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -50,13 +51,21 @@ public class FlatController {
     }
 
     @RequestMapping(value = "/contacts", method = RequestMethod.GET)
-    public String showContact(Model model){
+    public String showContact(Model model, @CookieValue(value = "user", defaultValue = "") String username, @CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("message", new MessageEntity());
         return "contacts";
     }
 
     @RequestMapping(value = "/flats", method = RequestMethod.GET)
-    public String listFlats(Model model){
+    public String listFlats(Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("flat", new FlatEntity());
         model.addAttribute("listFlats", this.flatService.listFlats());
         model.addAttribute("listCategories", this.categoryService.listCategories());
@@ -65,70 +74,96 @@ public class FlatController {
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String indexFlats(Model model){
-        model.addAttribute("flat",this.flatService.getFlatById(new Random().nextInt(this.flatService.listFlats().size())+1));
+    public String indexFlats(Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        List <FlatEntity> newlist = this.flatService.listFlats();
+        int randomNumber = new Random().nextInt(newlist.size());
+        model.addAttribute("flat", this.flatService.getFlatById(newlist.get(randomNumber).getFlatId()));
         List list = this.flatService.listFlats();
-        for (int i = 3; i <list.size(); i++){
+        for (int i = 3; i < list.size(); i++) {
             list.remove(i);
         }
+        model.addAttribute("role", role);
         model.addAttribute("attributesForSearch", new Attributes());
         model.addAttribute("listCategories", this.categoryService.listCategories());
-        model.addAttribute("listFlats",list);
+        model.addAttribute("listFlats", list);
         model.addAttribute("message", new MessageEntity());
         return "index";
     }
 
-    @RequestMapping(value = "/search-flats",  method = RequestMethod.POST)
-    public String searchFlats(@ModelAttribute("attributes") Attributes attributes, Model model){
-       // model.addAttribute("flat",this.flatService.getFlatById(new Random().nextInt(this.flatService.listFlats().size())+1));
-        List <FlatEntity> list = this.flatService.listFlats();
-        List <FlatEntity> newlist = new ArrayList<FlatEntity>();
+    @RequestMapping(value = "/search-flats", method = RequestMethod.POST)
+    public String searchFlats(@ModelAttribute("attributes") Attributes attributes, Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        // model.addAttribute("flat",this.flatService.getFlatById(new Random().nextInt(this.flatService.listFlats().size())+1));
+        List<FlatEntity> list = this.flatService.listFlats();
+        List<FlatEntity> newlist = new ArrayList<FlatEntity>();
 
         int size = list.size();
-        for (int i = 0; i <size; i++){
-            if (list.get(i).getPrice() >= Integer.valueOf(attributes.getAtribute5()) && list.get(i).getPrice() <= Integer.valueOf(attributes.getAtribute6()) && list.get(i).getCategoryId() == Integer.valueOf(attributes.getAtribute1()) ){
+        for (int i = 0; i < size; i++) {
+            if (list.get(i).getPrice() >= Integer.valueOf(attributes.getAtribute5()) && list.get(i).getPrice() <= Integer.valueOf(attributes.getAtribute6()) && list.get(i).getCategoryId() == Integer.valueOf(attributes.getAtribute1())) {
                 newlist.add(list.get(i));
             }
         }
 
-
+        model.addAttribute("role", role);
         model.addAttribute("message", new MessageEntity());
         model.addAttribute("listCategories", this.categoryService.listCategories());
-        model.addAttribute("listFlats",newlist);
+        model.addAttribute("listFlats", newlist);
         return "flats";
     }
 
     @RequestMapping(value = "/flats/add", method = RequestMethod.POST)
-    public String addMail(@ModelAttribute("flat") FlatEntity flatEntity){
-        if(flatEntity.getFlatId() == 0){
+    public String addFlat(@ModelAttribute("flat") FlatEntity flatEntity, @CookieValue(value = "user", defaultValue = "") String username, Model model,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        if (flatEntity.getFlatId() == 0) {
             this.flatService.addFlat(flatEntity);
-        }else {
+        } else {
             this.flatService.updateFlat(flatEntity);
         }
 
-        return "redirect:/flats";
+        return "redirect:/manager";
     }
 
     @RequestMapping(value = "/addmessage", method = RequestMethod.POST)
-    public String addFlat(@ModelAttribute("message") MessageEntity messageEntity, HttpServletRequest request){
-        if(messageEntity.getId() == 0){
+    public String addMessage(@ModelAttribute("message") MessageEntity messageEntity, HttpServletRequest request, @CookieValue(value = "user", defaultValue = "") String username, Model model,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        if (messageEntity.getId() == 0) {
             this.messageService.addMessage(messageEntity);
-        }else {
+        } else {
             this.messageService.updateMessage(messageEntity);
         }
 
-        return "redirect:"+request.getHeader("Referer");
+        return "redirect:" + request.getHeader("Referer");
     }
 
     @RequestMapping("/remove/{id}")
-    public String removeFlat(@PathVariable("id") int id){
+    public String removeFlat(@PathVariable("id") int id, @CookieValue(value = "user", defaultValue = "") String username, @CookieValue(value = "role", defaultValue = "") String role) {
+
+        if (!role.equals("1")) {
+            return "redirect:/404";
+        }
+
         this.flatService.removeFlat(id);
 
         return "redirect:/flats";
     }
 
     @RequestMapping("edit/{id}")
-    public String editFlat(@PathVariable("id") int id, Model model){
+    public String editFlat(@PathVariable("id") int id, Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+
+        model.addAttribute("listCategories", this.categoryService.listCategories());;
+        model.addAttribute("role", role);
         model.addAttribute("flat", this.flatService.getFlatById(id));
         model.addAttribute("listFlats", this.flatService.listFlats());
         model.addAttribute("message", new MessageEntity());
@@ -136,35 +171,110 @@ public class FlatController {
     }
 
     @RequestMapping("flatdata/{id}")
-    public String flatData(@PathVariable("id") int id, Model model){
+    public String flatData(@PathVariable("id") int id, Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("flat", this.flatService.getFlatById(id));
         model.addAttribute("message", new MessageEntity());
         return "flatdata";
     }
 
     @RequestMapping(value = "/about")
-    public String showAbout(Model model){
+    public String showAbout(Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("message", new MessageEntity());
         return "about-us";
     }
 
     @RequestMapping(value = "/gallery")
-    public String showGallery(Model model){
+    public String showGallery(Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("message", new MessageEntity());
         model.addAttribute("listFlats", this.flatService.listFlats());
         return "gallery";
     }
 
     @RequestMapping(value = "/404")
-    public String showError(Model model){
+    public String showError(Model model) {
         model.addAttribute("message", new MessageEntity());
         return "404";
     }
 
     @RequestMapping(value = "/faq")
-    public String showFAQ(Model model){
+    public String showFAQ(Model model, @CookieValue(value = "user", defaultValue = "") String username,@CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
         model.addAttribute("message", new MessageEntity());
         return "faq";
     }
+
+    @RequestMapping(value = "/404login")
+    public String showErrorLogin(Model model) {
+
+        model.addAttribute("message", new MessageEntity());
+        model.addAttribute("error", "You don't have permission to see this page.");
+        return "404";
+    }
+
+    @RequestMapping("editflat/{id}")
+    public String flatEdit(@PathVariable("id") int id, Model model, @CookieValue(value = "user", defaultValue = "") String username, @CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("") || !role.equals("1")) {
+            return "redirect:/404login";
+        }
+        if (id == 0){
+            model.addAttribute("flat", new FlatEntity());
+        }else{
+            model.addAttribute("flat", this.flatService.getFlatById(id));
+        }
+        model.addAttribute("listCategories", this.categoryService.listCategories());
+        model.addAttribute("role", role);
+
+        model.addAttribute("message", new MessageEntity());
+        return "flatedit";
+    }
+
+    @RequestMapping("managerpanel")
+    public String manager(Model model, @CookieValue(value = "user", defaultValue = "") String username,  @CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("") || !role.equals("1")) {
+            return "redirect:/404login";
+        }
+        model.addAttribute("role", role);
+        model.addAttribute("flat", new FlatEntity());
+        model.addAttribute("listFlats", this.flatService.listFlats());
+        model.addAttribute("listCategories", this.categoryService.listCategories());
+        model.addAttribute("message", new MessageEntity());
+        return "manager";
+    }
+
+    @RequestMapping("trylogin")
+    public String managerLogin(Model model, @CookieValue(value = "user", defaultValue = "") String username,  @CookieValue(value = "role", defaultValue = "") String role) {
+        if (username.equals("") || !role.equals("1")) {
+            return "redirect:/404login";
+        }
+
+        model.addAttribute("role", role);
+        model.addAttribute("flat", this.flatService.getFlatById(new Random().nextInt(this.flatService.listFlats().size()) + 1));
+        List list = this.flatService.listFlats();
+        for (int i = 3; i < list.size(); i++) {
+            list.remove(i);
+        }
+        model.addAttribute("attributesForSearch", new Attributes());
+        model.addAttribute("listCategories", this.categoryService.listCategories());
+        model.addAttribute("listFlats", list);
+        model.addAttribute("message", new MessageEntity());
+        return "index";
+    }
+
+
 
 }
