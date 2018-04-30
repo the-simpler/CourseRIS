@@ -6,28 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad165002-e810-48a1-be8d-caa36d0412fd" name="Default" comment="qdsa">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/allusers.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flatedit.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/useredit.jsp" />
+    <list default="true" id="ad165002-e810-48a1-be8d-caa36d0412fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/controller/FlatController.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/controller/FlatController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/dao/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/dao/UserDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/model/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/model/UserEntity.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salesproperty/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/salesproperty/service/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/about-us.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/about-us.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contacts.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contacts.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/faq.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/faq.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flatdata.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flatdata.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flats.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flats.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/gallery.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/gallery.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -784,7 +764,7 @@
       <workItem from="1524640407881" duration="15836000" />
       <workItem from="1524675635097" duration="20028000" />
       <workItem from="1524939129054" duration="1158000" />
-      <workItem from="1525113725954" duration="8423000" />
+      <workItem from="1525113725954" duration="8500000" />
     </task>
     <task id="LOCAL-00001" summary="work with flat table added">
       <created>1523630401608</created>
@@ -828,11 +808,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524736140380</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add registration, crud users, final version">
+      <created>1525122229351</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1525122229351</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117374000" />
+    <option name="totallyTimeSpent" value="117451000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -961,7 +948,8 @@
     <MESSAGE value="fix font-awesome" />
     <MESSAGE value="fix font-awesome, fix all jsp pages" />
     <MESSAGE value="add error page and user table" />
-    <option name="LAST_COMMIT_MESSAGE" value="add error page and user table" />
+    <MESSAGE value="add registration, crud users, final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="add registration, crud users, final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
