@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DeluxHotel - Best Rooms - Responsive Bootstrap 4 Template For Hotels</title>
+    <title>DeluxHotel - Best Flats - Responsive Bootstrap 4 Template For Hotels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
         <%@include file="/resources/assets/css/bootstrap.min.css"%>
@@ -93,34 +93,43 @@
         </div>
     </section>
     <!-- /breadcrumbs -->
-    <!-- chose best rooms -->
+    <!-- chose best Flats -->
     <section class="gallery best-room">
         <div class="container">
             <div class="col-md-12 text-center">
+                <a href="editflat/0" class="btn btn-default">ADD NEW FLAT</a>
                 <p></p>
             </div>
-            <h2 class="h2">All USERS</h2>
+            <h2 class="h2">Best Flats For Your Comfort</h2>
+            <ul class="portfolio-sorting">
+                <li><a href="#" data-group="all" class="active">All</a></li>
+                <c:forEach items="${listCategories}" var="categoryEntity">
+                    <li><a href="#" data-group="${categoryEntity.name}">${categoryEntity.name}</a></li>
+                </c:forEach>
+            </ul>
             <div class="container best-room-carousel">
                 <div id="grid" class="row best-room_ul best-rooms-isotope-page">
-                    <c:forEach items="${listUsers}" var="userEntity">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
+                    <c:forEach items="${listFlats}" var="flatEntity">
+                        <div data-groups="[&quot;${flatEntity.categoryByCategoryId.name}&quot;]" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 best-room_li">
                             <div class="best-room_img">
-                                <a href="#"><img src="../../resources/assets/images/icons/ava.png" alt=""/></a>
+                                <a href="#"><img src="resources/assets/images/gallery/${flatEntity.image}.png" alt=""/></a>
                                 <div class="best-room_overlay">
-                                    <div class="overlay_icn"><a href="/useredit/${userEntity.userId}"></a></div>
+                                    <div class="overlay_icn"><a href="/editflat/${flatEntity.flatId}"></a></div>
                                 </div>
                             </div>
                             <div class="best-room-info">
-                                <div class="best-room_t"><a href="useredit/${userEntity.userId}">${userEntity.username}</a></div>
-                                <div class="best-room_desc">${userEntity.password}</div>
-
-                                <c:if test="${userEntity.role == 1}">
-                                    <div class="best-room_desc">Manager</div>
-                                </c:if>
-                                <c:if test="${userEntity.role == 0}">
-                                    <div class="best-room_desc">User</div>
-                                </c:if>
-
+                                <div class="best-room_t"><a href="editflat/${flatEntity.flatId}">${flatEntity.name}</a></div>
+                                <div class="best-room_desc">${flatEntity.info}</div>
+                                <div class="best-room_price">
+                                    <span>$${flatEntity.price}</span> / night
+                                </div>
+                                <div class="best-room_footer">
+                                    <div class="footer_el __bed"><i class="fa fa-bed"></i> ${flatEntity.bed}</div>
+                                    <div class="footer_el __ppl"><i class="fa fa-user"></i> ${flatEntity.user}</div>
+                                    <div class="footer_el __area">${flatEntity.square} sqm</div>
+                                    <div class="footer_el __area"><a href = "<c:url value='/remove/${flatEntity.flatId}'/>">DEL</a></div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
                         </div>
                     </c:forEach>
@@ -131,7 +140,7 @@
 
 
     </section>
-    <!-- /choose best rooms -->
+    <!-- /choose best Flats -->
     <!-- footer -->
     <%@include file="_footer.jsp"%>
 </div>

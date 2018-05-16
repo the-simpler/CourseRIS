@@ -1,6 +1,7 @@
 package salesproperty.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "flat", schema = "flatagency", catalog = "")
@@ -16,6 +17,7 @@ public class FlatEntity {
     private Integer user;
     private int categoryId;
     private CategoryEntity categoryByCategoryId;
+    private Collection<RequestEntity> requestsByFlatId;
 
     @Id
     @Column(name = "flat_id", nullable = false)
@@ -161,5 +163,14 @@ public class FlatEntity {
 
     public void setCategoryByCategoryId(CategoryEntity categoryByCategoryId) {
         this.categoryByCategoryId = categoryByCategoryId;
+    }
+
+    @OneToMany(mappedBy = "flatByFlatId")
+    public Collection<RequestEntity> getRequestsByFlatId() {
+        return requestsByFlatId;
+    }
+
+    public void setRequestsByFlatId(Collection<RequestEntity> requestsByFlatId) {
+        this.requestsByFlatId = requestsByFlatId;
     }
 }

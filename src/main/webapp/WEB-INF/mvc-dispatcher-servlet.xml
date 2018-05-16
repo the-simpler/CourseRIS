@@ -35,6 +35,7 @@
                 <value>salesproperty.model.CategoryEntity</value>
                 <value>salesproperty.model.UserEntity</value>
                 <value>salesproperty.model.MessageEntity</value>
+                <value>salesproperty.model.RequestEntity</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -79,6 +80,14 @@
 
     <bean id="UserService" class="salesproperty.service.UserService">
         <property name="userDAO" ref="UserDAO"/>
+    </bean>
+
+    <bean id="RequestDAO" class="salesproperty.dao.RequestDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="RequestService" class="salesproperty.service.RequestService">
+        <property name="requestDAO" ref="RequestDAO"/>
     </bean>
 
 

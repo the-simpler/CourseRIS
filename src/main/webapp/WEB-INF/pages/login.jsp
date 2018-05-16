@@ -146,7 +146,6 @@
                 </div>
             </div>
 
-        <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
             <!-- /planner-->
         </div>
 

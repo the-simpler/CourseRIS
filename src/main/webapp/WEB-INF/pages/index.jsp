@@ -78,63 +78,7 @@
 <!-- main wrapper -->
 <div class="wrapper">
     <!-- header -->
-    <header class="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                        <div class="header-location"><i class="fa fa-home"></i> <a href="#">Minsk, BSUIR</a></div>
-                        <div class="header-email"><i class="fa fa-envelope-o"></i> <a href="mailto:zhenya.zhitkovsky@hotmail.com">zhenya.zhitkovsky@hotmail.com</a></div>
-                        <div class="header-phone"><i class="fa fa-phone"></i> <a href="#">+375 33 390 50 04</a></div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <nav class="navbar navbar-universal navbar-custom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="logo"><a href="<c:url value="/index"/>" class="navbar-brand page-scroll"><img src="../../resources/assets/images/logo/logo.png" alt="logo"/></a></div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="navbar-header">
-                                <button type="button" data-toggle="collapse" data-target=".navbar-main-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                            </div>
-                            <div class="collapse navbar-collapse navbar-main-collapse">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="<c:url value="/index"/>">Home</a></li>
-                                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="<c:url value="/about"/>">About Us</a></li>
-                                            <li><a href="<c:url value="/contacts"/>">Contacts</a></li>
-                                            <li><a href="<c:url value="/faq"/>">F.A.Q</a></li>
-                                            <li><a href="<c:url value="/gallery"/>">Gallery</a></li>
-                                            <li><a href="<c:url value="/404"/>">404 Page Not Found</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rooms <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="<c:url value="/flats"/>">All Rooms</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <c:if test="${role == '1'}">
-                                        <li><a href="<c:url value="/managerpanel"/>">Manager</a></li>
-                                        <li><a href="<c:url value="/showallusers"/>">Users</a></li>
-                                    </c:if>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <%@include file="_header.jsp"%>
     <!-- /header -->
     <!-- parallax -->
     <section class="bg-parallax parallax-window">
@@ -168,9 +112,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
-                                        <label>Adults</label>
+                                        <label>Number People</label>
                                         <div class="theme-select">
                                             <form:select path = "atribute2" class="form-control __plannerSelect">
                                                 <option value="1">1</option>
@@ -182,41 +126,35 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                    <div class="form-group">
-                                        <label>Kids</label>
-                                        <div class="theme-select">
-                                            <form:select path = "atribute3" class="form-control __plannerSelect">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </form:select>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label>Enter your email</label>
-                                        <form:input path="atribute4" type="email" class="form-control" placeholder="E-mail"/>
+                                        <form:input path="atribute4" type="email" class="form-control" placeholder="E-mail" required="true"/>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                     <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Minimal price</label>
-                                                <form:input path="atribute5" type="text" class="form-control" placeholder="70"/>
-                                            </div>
-                                     </div>
-                                        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Maximal price</label>
-                                                <form:input path="atribute6" type="text" class="form-control" placeholder="300"/>
-                                            </div>
-                                        </div>
+                                <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Minimal price</label>
+                                        <form:input path="atribute5" type="number" class="form-control" placeholder="70" required="true" min = "0" max = "1000"/>
+                                    </div>
+                                </div>
+                                <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Maximal price</label>
+                                        <form:input path="atribute6" type="number" class="form-control" placeholder="300"  required="true" min = "0" max = "1000"/>
+                                    </div>
+                                </div>
+                                <c:if test="${error !=null}">
+                                    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error">
+
+                                        Minimal price should be < maximal price
+
+                                    </div>
+                                </c:if>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -233,7 +171,7 @@
         </div>
     </section>
     <!-- /parallax -->
-    <!-- chose best rooms -->
+    <!-- chose best Flats -->
     <section class="best-room">
         <div class="container">
             <div class="title-main">
@@ -241,8 +179,8 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  ">
             </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  ">
-                    <div class = "center-block">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  ">
+                <div class = "center-block">
                     <div class="best-room_img ">
                         <a href="#"><img src="resources/assets/images/gallery/${flat.image}.png" alt=""/></a>
                         <div class="best-room_overlay">
@@ -256,12 +194,12 @@
                             <span>$${flat.price}</span> / day
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
+        </div>
     </section>
 
-    <!-- /choose best rooms -->
+    <!-- /choose best Flats -->
     <!-- lux banner parallax -->
 
     <!-- /enjoy our services -->
@@ -273,25 +211,25 @@
     <!-- /map -->
     <!-- /main wrapper -->
     <!-- footer -->
-        <footer class="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="footer-top_logo"><a href="<c:url value="/index"/>"><img src="../../resources/assets/images/logo/logo.png" alt="Footer logo"/></a></div>
-                            <div class="footer-top_txt">
-                                <p>Continual delighted as elsewhere am convinced unfeeling. Introduced stimulated attachment no by projection. To lady whom my mile sold four need introduced.</p>
-                            </div>
-                            <div class="footer-top_address">
-                                <div><i class="fa fa-phone"></i> Phone: <span>+375 33 390 50 04</span></div>
-                                <div><i class="fa fa-envelope-o"></i> E-mail: <span><a href="mailto:zhenya.zhitkovsky@hotmail.com">zhenya.zhitkovsky@hotmail.com</a></span></div>
-                                <div><i class="fa fa-home"></i> Location: <span>Minsk, BSUIR</span></div>
-                            </div>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-top_logo"><a href="<c:url value="/index"/>"><img src="../../resources/assets/images/about/logo.png" alt="Footer logo"/></a></div>
+                        <div class="footer-top_txt">
+                            <p>Continual delighted as elsewhere am convinced unfeeling. Introduced stimulated attachment no by projection. To lady whom my mile sold four need introduced.</p>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="footer-top_rooms">
-                                <ul>
-                                    <c:forEach items="${listFlats}" var="flatEntity">
+                        <div class="footer-top_address">
+                            <div><i class="fa fa-phone"></i> Phone: <span>+375 33 390 50 04</span></div>
+                            <div><i class="fa fa-envelope-o"></i> E-mail: <span><a href="mailto:zhenya.zhitkovsky@hotmail.com">zhenya.zhitkovsky@hotmail.com</a></span></div>
+                            <div><i class="fa fa-home"></i> Location: <span>Minsk, BSUIR</span></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-top_rooms">
+                            <ul>
+                                <c:forEach items="${listFlats}" var="flatEntity">
                                     <li>
 
                                         <div class="rooms_img">
@@ -302,53 +240,47 @@
                                             <div class="rooms_props">${flatEntity.bed} Bed  /  Wi-Fi  /  ${flatEntity.user} - User<span>$${flatEntity.price}</span></div>
                                         </div>
                                     </li>
-                                    </c:forEach>
-                                </ul>
-                            </div>
+                                </c:forEach>
+                            </ul>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 marg-sm-50 col-xs-12">
-                            <div class="footer-top_contact_form">
-                                <div class="contact_form_t">Contact Form</div>
-                                <form:form method = "POST" commandName="message" action="/addmessage" class="row form-horizontal form-wizzard">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 marg-sm-50 col-xs-12">
+                        <div class="footer-top_contact_form">
+                            <div class="contact_form_t">Contact Form</div>
+                            <form:form method = "POST" commandName="message" action="/addmessage" class="row form-horizontal form-wizzard">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-                                        <form:input path="name" type="text" name="name" class="form-control" placeholder="Name ..."/>
+                                    <form:input path="name" type="text" name="name" class="form-control" placeholder="Name ..."/>
 
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <form:input path="email" type="email"  name="email" class="form-control" placeholder="Email ..."/>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <form:textarea path = "message" rows="6" name="message" class="form-control" placeholder="Message ..."/>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-                                        <input type="submit" value="Send message" class="btn btn-default"/>
-                                    </div>
-                                </form:form>
-                            </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <form:input path="email" type="email"  name="email" class="form-control" placeholder="Email ..."/>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <form:textarea path = "message" rows="6" name="message" class="form-control" placeholder="Message ..."/>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                                    <input type="submit" value="Send message" class="btn btn-default"/>
+                                </div>
+                            </form:form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="footer-bottom_copy"></div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="footer-bottom_links">
-                                <a class="active" href="index">Home</a>
-                                <a href="<c:url value="/gallery"/>">Gallery</a>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="footer-bottom_copy"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-                                <a href="wizzard-step1.html">Reservation</a>
-                                <a href="#">Purchase</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 </div>
 <!-- /footer -->
 <!-- Scripts -->

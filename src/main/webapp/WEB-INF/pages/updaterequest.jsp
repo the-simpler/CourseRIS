@@ -84,7 +84,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="h1">Update User</h1>
+                    <h1 class="h1">Update Request</h1>
                 </div>
                 <div class="col-md-6">
 
@@ -93,9 +93,9 @@
         </div>
     </section>
     <!-- /breadcrumbs -->
-    <!-- chose best rooms -->
+    <!-- chose best Flats -->
     <section class="room-detail">
-        <form:form method = "POST" commandName="user" action="/user/add" >
+        <form:form method = "POST" commandName="request" action="/request/update" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -113,28 +113,43 @@
 
 
 
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-md-12">
                         <div class="room-detail_overview">
                             <table class="simple">
-                                <c:if test = "${user.userId!= 0}">
+
                                     <tr>
-                                        <td><strong>User ID:</strong></td>
-                                        <td><form:input path="userId" type="text" class="form-control" placeholder="Flat ID ..."/>
+                                        <td><strong>Flat ID:</strong></td>
+                                        <td><form:label path="id" type="text" class="">${request.id}</form:label>
+                                            <form:input path="id" hidden = "true"/>
+                                            <form:input path="flatId" hidden = "true"/>
+                                            <form:input path="userId" hidden = "true"/>
                                         </td>
                                     </tr>
-                                </c:if>
+
                                 <tr>
-                                    <td><strong>Username:</strong></td>
-                                    <td><form:input path="username" type="text" class="form-control" placeholder="Username ..."/>
+                                    <td><strong>First Name:</strong></td>
+                                    <td><form:input path="firstName" type="text" class="form-control" placeholder="First Name ..." required ="true" pattern="[0-9a-zA-Z\s]+"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Password:</strong></td>
-                                    <td>   <form:input path="password" type="text" class="form-control" placeholder="Password ..."/> </td>
+                                    <td><strong>Second Name:</strong></td>
+                                    <td>   <form:input path="lastName" type="text" class="form-control" placeholder="Second Name ..." pattern="[0-9a-zA-Z\s]+" required = "true"/> </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Role:</strong></td>
-                                    <td>   <form:input path="role" type="text" class="form-control" placeholder="Role ..."/> </td>
+                                    <td><strong>Phone Number (like 375333905004):</strong></td>
+                                    <td>    <form:input path="phoneNumber" type="number" class="form-control" placeholder="Phone Number ..." required = "true"  pattern="[0-9]+"/> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td>    <form:input path="email" type="email" class="form-control" placeholder="Email ..."  required = "true"/></td>
+                                </tr>
+                                <tr>
+
+
+                                    <td><strong>Additional note (only latin characters and numbers)</strong></td>
+                                    <td><form:textarea path = "description" class="form-control" rows="5" placeholder="Type here" pattern="[0-9a-zA-Z.,- ]+" required = "true"/>
+                                    </td>
+
                                 </tr>
 
                             </table>
@@ -145,7 +160,7 @@
             </div>
         </form:form>
     </section>
-    <!-- /choose best rooms -->
+    <!-- /choose best Flats -->
     <!-- footer -->
     <%@include file="_footer.jsp"%>
 </div>

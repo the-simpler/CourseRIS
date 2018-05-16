@@ -107,7 +107,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                 <div class="form-group ">
                                     <label>Enter your username: </label>
-                                    <form:input path="username" type="text" class="form-control" placeholder="Username" autofocus="true"/>
+                                    <form:input path="username" type="text"  class="form-control" placeholder="Username" autofocus="true" pattern="[0-9A-Za-z]+" required = "true"/>
 
                                 </div>
                             </div>
@@ -116,15 +116,15 @@
                         <div class="row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group ">
-                                    <label>Enter your password:</label>
-                                    <form:input path="password" type="password" class="form-control" placeholder="Password"/>
+                                    <label>Enter your password(letters and numbers, >6):</label>
+                                    <form:input path="password" type="password" pattern="[0-9A-Za-z]{6,22}" class="form-control" placeholder="Password" required = "true"/>
                                 </div>
                             </div>
 
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group ">
                                     <label>Enter your password:</label>
-                                    <form:input path="confirmPassword" type="password" class="form-control" placeholder="Password"/>
+                                    <form:input path="confirmPassword" type="password" class="form-control" placeholder="Password" required = "true"/>
                                 </div>
                             </div>
 
